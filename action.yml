@@ -34,8 +34,8 @@ runs:
                 "run_number": "${{ github.run_number }}",
                 "actor": "${{ github.actor }}",
                 "repository": "${{ github.repository }}",
-                "event_name": "${{ github.event_name }}",
-                "event_data": toJSON("${{ github.event_data }}")
+                "trigger": "${{ github.event_name }}",
+                "data": ${{ inputs.event-data }}
               }
             }
           }
