@@ -35,7 +35,7 @@ runs:
                 "actor": "${{ github.actor }}",
                 "repository": "${{ github.repository }}",
                 "event_name": "${{ github.event_name }}",
-                "data": ${{ github.event_data }}
+                "event_data": toJSON("${{ github.event_data }}")
               }
             }
           }
