@@ -1,6 +1,6 @@
-name: "App Insights Event"
-author: "Syed Hassaan Ahmed"
-description: "Send event to Azure Application Insights"
+name: "App Insights for GitHub Actions"
+author: "LobsterInk"
+description: "Send custom event to Azure Application Insights."
 branding:
   icon: "monitor"
   color: "blue"
@@ -10,7 +10,10 @@ inputs:
     required: true
     default: "no_instrumentation_key"
   event-name:
-    description: "Name of the customEvent"
+    description: "Name of the custom event"
+    required: true
+  event-data:
+    description: "JSON metadata for the custom event"
     required: true
 runs:
   using: "composite"
@@ -30,7 +33,8 @@ runs:
                 "run_number": "${{ github.run_number }}",
                 "actor": "${{ github.actor }}",
                 "repository": "${{ github.repository }}",
-                "event_name": "${{ github.event_name }}"
+                "event_name": "${{ github.event_name }}",
+                "data": ${{ github.event_data}}
               }
             }
           }
