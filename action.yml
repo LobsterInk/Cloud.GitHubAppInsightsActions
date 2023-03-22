@@ -14,7 +14,8 @@ inputs:
     required: true
   event-data:
     description: "JSON metadata for the custom event"
-    required: true
+    required: false
+    default: "{}"
 runs:
   using: "composite"
   steps:
@@ -34,7 +35,7 @@ runs:
                 "actor": "${{ github.actor }}",
                 "repository": "${{ github.repository }}",
                 "event_name": "${{ github.event_name }}",
-                "data": ${{ github.event_data}}
+                "data": ${{ github.event_data }}
               }
             }
           }
