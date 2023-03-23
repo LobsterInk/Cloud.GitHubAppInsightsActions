@@ -35,7 +35,7 @@ runs:
                 "actor": "${{ github.actor }}",
                 "repository": "${{ github.repository }}",
                 "trigger": "${{ github.event_name }}",
-                "data": ${{ inputs.event-data }}
+                "data": "${{ inputs.event-data }}"
               }
             }
           }
